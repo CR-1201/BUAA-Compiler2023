@@ -1,0 +1,197 @@
+# Conroy 20375337
+.macro putint
+	li $v0, 1
+	syscall
+.end_macro
+
+.macro getint
+	li $v0, 5
+	syscall
+.end_macro
+
+.macro putstr
+	li $v0, 4
+	syscall
+.end_macro
+
+.data
+a: .word 0,1,2,3,4,5,6,7,8,9
+Str0: .asciiz ", "
+Str1: .asciiz "\n10, -8983, -6\n"
+.text
+main:
+	add $sp, $sp, -36
+b0_0:
+	getint
+	move $v1, $v0
+	getint
+	move $v0, $v0
+	mul $v1, $v1, $v0
+	li $v0, 25
+	mul $v0, $v1, $v0
+	subu $v0, $zero, $v0
+	addiu $v1, $v0, 5
+	bge $v1, 100, b12_2
+b13_3:
+b11_1:
+	li $v0, 100
+	subu $v1, $v0, $v1
+	li $v0, 36
+	mul $a0, $v1, $v0
+	la $v0, a
+	la $v1, a
+	lw $v1, 0($v1)
+	addu $v1, $v1, $a0
+	sw $v1, 0($v0)
+	la $v0, a
+	addiu $v0, $v0, 4
+	la $v1, a
+	addiu $v1, $v1, 4
+	lw $v1, 0($v1)
+	addu $v1, $v1, $a0
+	sw $v1, 0($v0)
+	la $v0, a
+	addiu $v0, $v0, 8
+	la $v1, a
+	addiu $v1, $v1, 8
+	lw $v1, 0($v1)
+	addu $v1, $v1, $a0
+	sw $v1, 0($v0)
+	la $v0, a
+	addiu $v0, $v0, 12
+	la $v1, a
+	addiu $v1, $v1, 12
+	lw $v1, 0($v1)
+	addu $v1, $v1, $a0
+	sw $v1, 0($v0)
+	la $v0, a
+	addiu $v1, $v0, 0
+	addiu $v1, $v1, 16
+	la $v0, a
+	addiu $v0, $v0, 16
+	lw $v0, 0($v0)
+	addu $v0, $v0, $a0
+	sw $v0, 0($v1)
+	la $v0, a
+	addiu $v0, $v0, 20
+	la $v1, a
+	addiu $v1, $v1, 20
+	lw $v1, 0($v1)
+	addu $v1, $v1, $a0
+	sw $v1, 0($v0)
+	la $v0, a
+	addiu $v0, $v0, 24
+	la $v1, a
+	addiu $v1, $v1, 24
+	lw $v1, 0($v1)
+	addu $v1, $v1, $a0
+	sw $v1, 0($v0)
+	la $v0, a
+	addiu $v0, $v0, 28
+	la $v1, a
+	addiu $v1, $v1, 28
+	lw $v1, 0($v1)
+	addu $v1, $v1, $a0
+	sw $v1, 0($v0)
+	la $v0, a
+	addiu $v1, $v0, 0
+	addiu $v1, $v1, 32
+	la $v0, a
+	addiu $v0, $v0, 32
+	lw $v0, 0($v0)
+	addu $v0, $v0, $a0
+	sw $v0, 0($v1)
+	la $v0, a
+	addiu $v0, $v0, 36
+	la $v1, a
+	addiu $v1, $v1, 36
+	lw $v1, 0($v1)
+	addu $v1, $v1, $a0
+	sw $v1, 0($v0)
+b12_2:
+	la $v0, a
+	lw $a0, 0($v0)
+	la $v0, a
+	addiu $v0, $v0, 4
+	lw $t5, 0($v0)
+	la $v0, a
+	addiu $v0, $v0, 8
+	lw $t6, 0($v0)
+	la $v0, a
+	addiu $v0, $v0, 12
+	lw $t1, 0($v0)
+	la $v0, a
+	addiu $v0, $v0, 16
+	lw $v1, 0($v0)
+	la $v0, a
+	addiu $v0, $v0, 20
+	lw $t0, 0($v0)
+	la $v0, a
+	addiu $v0, $v0, 24
+	lw $t3, 0($v0)
+	la $v0, a
+	addiu $v0, $v0, 28
+	lw $t4, 0($v0)
+	la $v0, a
+	addiu $v0, $v0, 32
+	lw $t2, 0($v0)
+	la $v0, a
+	addiu $v0, $v0, 36
+	lw $t7, 0($v0)
+	putint
+	la $v0, Str0
+	move $a0, $v0
+	putstr
+	move $a0, $t5
+	putint
+	la $v0, Str0
+	addiu $a0, $v0, 0
+	putstr
+	move $a0, $t6
+	putint
+	la $v0, Str0
+	move $a0, $v0
+	putstr
+	move $a0, $t1
+	putint
+	la $v0, Str0
+	addiu $a0, $v0, 0
+	putstr
+	move $a0, $v1
+	putint
+	la $v0, Str0
+	move $a0, $v0
+	putstr
+	move $a0, $t0
+	putint
+	la $v0, Str0
+	move $a0, $v0
+	putstr
+	move $a0, $t3
+	putint
+	la $v0, Str0
+	addiu $a0, $v0, 0
+	putstr
+	move $a0, $t4
+	putint
+	la $v0, Str0
+	addiu $a0, $v0, 0
+	putstr
+	move $a0, $t2
+	putint
+	la $v0, Str0
+	move $a0, $v0
+	putstr
+	move $a0, $t7
+	putint
+	la $v0, Str0
+	addiu $a0, $v0, 0
+	putstr
+	la $v0, Str1
+	move $a0, $v0
+	putstr
+	li $v0, 0
+	add $sp,  $sp, 36
+	li $v0, 10
+	syscall
+
